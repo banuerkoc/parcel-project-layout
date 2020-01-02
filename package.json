@@ -1,0 +1,63 @@
+{
+  "name": "parcel-easy-boilerplate",
+  "version": "1.0.0",
+  "description": "Parcel Easy Boilerplate",
+  "main": "src/index.njk",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development parcel src/* --open",
+    "prebuild": "cross-env NODE_ENV=production rimraf dist/* && npm run lint",
+    "build": "cross-env NODE_ENV=production parcel build src/index.njk --no-cache",
+    "preserve": "npm run build",
+    "serve": "npx serve dist",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint src/**/*.js --fix",
+    "lint:css": "stylelint './src/**/*.+(css|scss)'",
+    "prettier": "prettier \"src/**/*.+(js|html|css|scss|json|md|yml|yaml|md)\"",
+    "format": "npm run prettier -- --write",
+    "validate": "npm run lint && npm run prettier -- --list-different",
+    "test": "test -e dist/index.html && exit 0 || exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarongarciah/parcel-easy-boilerplate.git"
+  },
+  "keywords": [
+    "parcel",
+    "boilerplate"
+  ],
+  "author": "Aarón García Hervás <aarongarciahervas@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aarongarciah/parcel-easy-boilerplate/issues"
+  },
+  "homepage": "https://github.com/aarongarciah/parcel-easy-boilerplate/",
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "autoprefixer": "^9.7.1",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.6.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.4.3",
+    "modern-normalize": "^0.6.0",
+    "nunjucks": "^3.2.0",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-imagemin": "^3.0.0",
+    "parcel-plugin-nunjucks": "^2.2.0",
+    "parcel-plugin-static-files-copy": "^2.2.1",
+    "prettier": "1.19.1",
+    "rimraf": "^3.0.0",
+    "sass": "^1.23.6",
+    "sass-mq": "^5.0.1",
+    "stylelint": "^12.0.0",
+    "stylelint-config-recommended-scss": "^4.0.0",
+    "stylelint-scss": "^3.12.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
+    "run": "^1.4.0"
+  }
+}
